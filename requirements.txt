@@ -1,0 +1,5 @@
+dotenv
+pathlib
+json
+shelx
+pandas
