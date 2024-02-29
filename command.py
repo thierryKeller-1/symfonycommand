@@ -128,7 +128,7 @@ class SymfonyCommand(object):
                         process1 = subprocess.Popen(shlex.split(command1), stdout=subprocess.PIPE, shell=True)
                         output, error = process1.communicate()
                         print(output)
-                        if 'decomposed' in output:
+                        if 'decomposed' in output.decode('utf-8'):
                             print(f"   ===> decomposing {DATES[self.log['last_date']]} page {self.log['last_page_decomposed']} finished ")
                             break
                         else:
@@ -151,7 +151,7 @@ class SymfonyCommand(object):
                         print(f"  ==> launching command {command2}")
                         process2 = subprocess.Popen(shlex.split(command2), stdout=subprocess.PIPE, shell=True)
                         output, error = process2.communicate()
-                        if 'recovered' in output:
+                        if 'recovered' in output.decode('utf-8'):
                             print(f"   ===> recovering {DATES[self.log['last_date']]} page {self.log['last_page_recovered']} finished ")
                             break
                         else:
